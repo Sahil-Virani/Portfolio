@@ -8,8 +8,7 @@ export default function Skills() {
       <div className="container-shell">
         <SectionHeading
           tag="Skills"
-          title="Technical toolkit"
-          subtitle="A practical mix of frontend, backend, AI, and finance-oriented technical knowledge."
+          title="What I build with."
         />
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">

@@ -10,7 +10,7 @@ export default function Projects() {
         <SectionHeading
           tag="Projects"
           title="Selected work"
-          subtitle="A few projects that reflect my interests across AI, full-stack development, systems, and finance-oriented product design."
+          subtitle="Production systems and AI products I've built."
         />
 
         <div className="grid gap-6 md:grid-cols-2">

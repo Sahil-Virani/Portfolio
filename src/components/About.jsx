@@ -2,13 +2,20 @@ import { motion } from 'framer-motion'
 import { about } from '../data/portfolioData'
 import SectionHeading from './SectionHeading'
 
+const expertise = [
+  'Agentic AI Systems & Multi-Agent Orchestration',
+  'Production LLM Integration (GPT-4, Whisper, custom pipelines)',
+  'Full-Stack Engineering & Scalable API Architectures',
+  'Quantitative Finance & Risk-Aware Analytics',
+]
+
 export default function About() {
   return (
     <section id="about" className="section-shell">
       <div className="container-shell">
         <SectionHeading
           tag="About"
-          title="A builder focused on thoughtful software and real-world outcomes."
+          title="AI engineer. Full-stack builder. Finance domain."
         />
 
         <div className="panel p-8 sm:p-10">
@@ -32,16 +39,12 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="grid gap-4"
+              className="grid gap-4 content-start"
             >
-              {[
-                ['What I Build', 'AI-native full-stack apps, agentic systems, quantitative and financial tooling, scalable APIs, and solution architectures that connect AI to real user workflows'],
-                ['What I Value', 'Clarity, reliability, strong UX, maintainable code, and products that create real leverage for the people using them'],
-                ["Where I'm Headed", 'Big tech, Fintech, and Wealth tech! Roles in AI engineering, solution architecture, or quant-adjacent product development where finance and intelligent systems meet'],
-              ].map(([title, text]) => (
-                <div key={title} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
-                  <h3 className="text-sm font-semibold text-white">{title}</h3>
-                  <p className="mt-2 text-sm leading-7 text-slate-300">{text}</p>
+              <p className="text-sm uppercase tracking-[0.15em] text-slate-400">Core Focus Areas</p>
+              {expertise.map((item) => (
+                <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 flex items-center justify-center min-h-[64px]">
+                  <p className="text-sm font-medium text-slate-200">{item}</p>
                 </div>
               ))}
             </motion.div>

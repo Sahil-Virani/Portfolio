@@ -13,8 +13,6 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65 }}
           >
-            <span className="section-tag">Open to Opportunities</span>
-
             <h1 className="mt-6 max-w-4xl text-4xl font-semibold leading-tight tracking-tight text-white sm:text-6xl">
               {personalInfo.name}
             </h1>
