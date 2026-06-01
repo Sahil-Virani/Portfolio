@@ -4,7 +4,7 @@ import SectionHeading from './SectionHeading'
 
 const expertise = [
   'Agentic AI Systems & Multi-Agent Orchestration',
-  'Production LLM Integration (GPT-4, Whisper, custom pipelines)',
+  'Production LLM Integration',
   'Full-Stack Engineering & Scalable API Architectures',
   'Quantitative Finance & Risk-Aware Analytics',
 ]
