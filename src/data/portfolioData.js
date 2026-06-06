@@ -19,6 +19,15 @@ export const about = {
 }
 
 export const projects = [
+    {
+    title: 'MarketMind AI',
+    description:
+      'Architected a full-stack AI equity research platform with a dual-mode pipeline: instant ticker-based memo generation and a 9-stage autonomous research agent that orchestrates Gemini API calls, yfinance financial data, and live news APIs to produce institutional-grade investment analysis. Engineered a confidence-loop LLM pipeline with dynamic hypothesis planning, multi-source evidence synthesis across up to 8 companies, and critic-loop scoring that iteratively refines outputs until quality thresholds are met. Built a real-time streaming frontend with SSE-powered live pipeline visualization and animated confidence scoring.',
+    tech: ['Next.js', 'TypeScript', 'FastAPI', 'Python', 'Gemini API', 'yfinance', 'REST APIs', 'SSE'],
+    github: 'https://github.com/Sahil-Virani/MarketMind-AI',
+    live: null,
+    highlight: 'Agentic AI Systems'
+  },
   {
     title: 'CenterPlate',
     description:
