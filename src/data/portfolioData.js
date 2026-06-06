@@ -7,7 +7,7 @@ export const personalInfo = {
   email: 'sahil.virani@outlook.com',
   linkedin: 'https://www.linkedin.com/in/sahil-virani9',
   github: 'https://github.com/Sahil-Virani',
-  resume: '/Portfolio/Sahil_Virani_Resume.pdf',
+  resume: '/Portfolio/Sahil_Virani_Resume.pdf?v=2',
 }
 
 export const about = {
