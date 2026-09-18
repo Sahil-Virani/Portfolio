@@ -1,6 +1,6 @@
 export const personalInfo = {
   name: 'Sahil Virani',
-  title: ['AI-Native Full-Stack & AI Systems Engineer', 'Stevens Institute of Technology | B.S. in CS, QF Minor — M.S. Finance (Expected May 2027)'],
+  title: ['AI-Native Full-Stack & AI Systems Engineer', 'Stevens Institute of Technology | B.S. in CS, QF Minor — M.S. Financial Engineering (Expected May 2027)'],
   tagline:
     'Building production AI systems at the intersection of intelligent automation and financial decision-making.',
   location: 'Hoboken, NJ / New York Area',
@@ -12,36 +12,76 @@ export const personalInfo = {
 
 export const about = {
   paragraphs: [
-    'I engineer AI-native systems that bridge full-stack engineering with intelligent automation. My work focuses on agentic workflows, LLM integration at production scale, and decision-support tools for financial technology. I hold a B.S. in Computer Science from Stevens Institute of Technology with a minor in Quantitative Finance, and am completing an Accelerated M.S. in Finance, providing deep technical and domain fluency across both disciplines.',
-    'My background spans applied AI research, full-stack product engineering, and agentic workflow development. I have designed and shipped production AI features including multi-language voice transcription, real-time sentiment analysis, and human-AI collaboration pipelines, owning technical work end to end across backend, database, and AI layers.',
+    'I engineer AI-native systems that bridge full-stack engineering with intelligent automation. My work focuses on agentic workflows, LLM integration at production scale, and decision-support tools for financial technology. I hold a B.S. in Computer Science from Stevens Institute of Technology with a minor in Quantitative Finance, and am completing an Accelerated M.S. in Financial Engineering, providing deep technical and domain fluency across both disciplines.',
+    'My background spans applied AI research, full-stack product engineering, and agentic workflow development. I have shipped production AI features including multi-language voice transcription and real-time sentiment analysis, built multi-agent and self-evaluating LLM pipelines, and won 1st place at the Google Developer Groups and Vonage AI Fashion Hackathon, owning technical work end to end across backend, database, and AI layers.',
     'I target roles at the intersection of AI, technology, and finance in big tech, fintech, or quantitative research, building intelligent automation, risk-aware analytics, and financial decision-support systems that create measurable impact.'
+  ],
+  certifications: [
+    'AWS Certified AI Practitioner',
+    'AWS Certified Cloud Practitioner',
+    'Claude 101',
+    'Claude Code 101',
+    'Claude Developer Platform'
+  ],
+  awards: [
+    'Edwin A. Stevens Scholarship',
+    'Charles Suffel Scholarship',
+    'Rising Star in IT 2025',
+    "Dean's List"
   ]
 }
 
 export const projects = [
-    {
+  {
     title: 'MarketMind AI',
     description:
-      'Architected a full-stack AI equity research platform with a dual-mode pipeline: instant ticker-based memo generation and a 9-stage autonomous research agent that orchestrates Gemini API calls, yfinance financial data, and live news APIs to produce institutional-grade investment analysis. Engineered a confidence-loop LLM pipeline with dynamic hypothesis planning, multi-source evidence synthesis across up to 8 companies, and critic-loop scoring that iteratively refines outputs until quality thresholds are met. Built a real-time streaming frontend with SSE-powered live pipeline visualization and animated confidence scoring.',
+      'Architected a full-stack AI equity research platform pairing a synchronous FastAPI path that returns investment memos in under a second with a 9-stage autonomous research agent orchestrating Gemini, yfinance market data, and live news APIs in parallel. Engineered a self-evaluating LLM pipeline where a critic model scores evidence 0–100 against structured rubrics and triggers up to 2 targeted refinement passes, synthesizing across up to 8 companies per run. Built a real-time streaming frontend with SSE-powered live pipeline visualization and animated per-stage confidence scoring.',
     tech: ['Next.js', 'TypeScript', 'FastAPI', 'Python', 'Gemini API', 'yfinance', 'REST APIs', 'SSE'],
     github: 'https://github.com/Sahil-Virani/MarketMind-AI',
     live: null,
     highlight: 'Agentic AI Systems'
   },
   {
+    title: 'FitCheck AI',
+    description:
+      'Won 1st place among 15+ teams at the Google Developer Groups and Vonage AI Fashion Hackathon with a real-time multiplayer AI fit-check game. Architected a server-authoritative platform across 16 REST endpoints where revision-stamped Vonage signals carry no game state, so clients re-fetch and discard stale data instead of being trusted. Hardened the Gemini judging path with retry, cross-model fallback, and neutral-score degradation so one API failure cannot stall a live session, with Zod schemas shared as the LLM output contract and on-device MediaPipe pose guidance. Verified by 17 unit and 3 Playwright end-to-end tests covering concurrent submissions, deadline races, and score leakage.',
+    tech: ['TypeScript', 'React', 'Node.js', 'Express', 'Zod', 'Gemini API', 'Vonage Video API', 'MediaPipe', 'Playwright'],
+    github: 'https://github.com/Sahil-Virani/GDG-Hackathon',
+    live: null,
+    highlight: '1st Place Hackathon Winner'
+  },
+  {
     title: 'CenterPlate',
     description:
-      'Built a full-stack cross-platform mobile app for group meetup coordination and real-time restaurant voting. Engineered a custom smart midpoint algorithm scoring geospatial grid candidates via a weighted fairness function, and integrated the Foursquare Places API v3 with multi-tier fallback logic and real-time session sync via Socket.IO rooms with Firebase JWT authentication.',
+      'Shipped a cross-platform React Native app for group meetup coordination and real-time restaurant voting, used by 25+ people across 43 REST endpoints. Synced concurrent voting sessions over Socket.IO rooms with Firebase JWT auth on both HTTP and WebSocket connections. Designed a geospatial midpoint algorithm scoring candidates against a 1,000-city hub dataset on an 85/15 weighting of travel fairness to population-weighted hub proximity, then ranking venues via the Foursquare Places API v3 with multi-tier fallback logic.',
     tech: ['React Native', 'Expo', 'Node.js', 'Express', 'MongoDB', 'Socket.IO', 'Firebase', 'Foursquare API'],
     github: null,
     live: 'https://youtu.be/Rru1T9ja-ns',
     highlight: 'Full-Stack Mobile'
   },
   {
+    title: 'AI-Generated Visual Escape Room',
+    description:
+      'Built a playable escape room game where a multi-agent LLM pipeline generates a themed, visually consistent room for every session, complete with real puzzles, a hint economy, and a post-game "Room Autopsy" screen. Orchestrated 6 specialist Claude agents (lore, style, puzzle architect, continuity, gatekeeper, narrator) across 2 LangGraph graphs with parallel branching, using tool-calling and JSON schemas so agents exchange typed objects rather than prose. Grounded generation with RAG over 3 Chroma vector collections for lore, style, and per-session solutions.',
+    tech: ['Python', 'LangGraph', 'Claude API', 'FastAPI', 'Chroma', 'RAG', 'React', 'TypeScript'],
+    github: null,
+    live: null,
+    highlight: 'Multi-Agent AI'
+  },
+  {
+    title: 'On The Clock',
+    description:
+      'Built a fantasy football draft and lineup assistant combining a FastAPI analytics engine with a React draft board UI. Evolved the recommendation engine from a VOR baseline and ~10,000-run Monte Carlo simulation of pick availability into plan-based valuation that projects each pick\'s effect on the full remaining draft, fixing a diagnosed one-step-lookahead bias. Built a historical backtesting harness with no-lookahead and no-survivorship-bias discipline, a mock draft simulator with ADP-noise bots, and a reproducible pipeline crosswalking nflverse (2012–2025), FantasyPros, and Sleeper data into DuckDB.',
+    tech: ['FastAPI', 'Python', 'React', 'TypeScript', 'DuckDB', 'Polars', 'Monte Carlo Simulation', 'Backtesting'],
+    github: 'https://github.com/Sahil-Virani/on-the-clock',
+    live: null,
+    highlight: 'Data-Driven Decision Tools'
+  },
+  {
     title: 'Sentari AI Journaling Platform',
     description:
-      'Engineered end-to-end AI features for a production journaling platform: integrated GPT-4 for language-aware response generation, Whisper API for voice-to-text transcription across 170+ languages, and built sentiment-driven feature logic correlating user-reported and AI-inferred emotional patterns. Deployed via Docker with Supabase backend and 15+ REST APIs.',
-    tech: ['Flask', 'Supabase', 'Docker', 'REST APIs', 'GPT-4', 'Whisper API', 'SQL'],
+      'Shipped 15+ production REST endpoints powering voice transcription, multilingual NLP, and sentiment analysis for a live journaling platform serving both an iOS app and a web client. Built a runtime model-routing layer selecting GPT-4 or Whisper from live language detection, extending transcription coverage to 170+ languages, and sentiment-driven feature logic correlating user-reported and AI-inferred emotional patterns. Containerized with Docker over PostgreSQL (Supabase).',
+    tech: ['Flask', 'PostgreSQL', 'Supabase', 'Docker', 'REST APIs', 'GPT-4', 'Whisper API'],
     github: null,
     live: null,
     highlight: 'AI Product Engineering'
@@ -67,7 +107,7 @@ export const projects = [
   {
     title: 'AI Human Collaboration Research',
     description:
-      'Designed and implemented Python-based analysis pipelines to process conversational data from OpenAI-powered agent experiments, extracting patterns in human-AI decision-making and creativity across structured team interactions. Contributed to experimental design and evaluation methodology for ongoing research.',
+      'Engineered Python pipelines that processed and behaviorally coded 100+ multi-turn transcripts from OpenAI-powered agent experiments into quantitative decision-making and creativity measures. Co-designed evaluation methodology and success metrics for a controlled study of generative AI\'s effect on group decisions across 60+ participants, and authored a reproducible annotation schema that improved analysis efficiency by 50%.',
     tech: ['Python', 'Excel', 'OpenAI API', 'Data Analysis', 'Experiment Design'],
     github: null,
     live: null,
@@ -85,7 +125,7 @@ export const projects = [
   {
     title: 'Custom Unix-Like Mini Shell',
     description:
-      'Implemented a Unix shell in C with built-in command execution, process control, signal handling, and I/O management. Demonstrates systems-level fluency and low-level engineering depth.',
+      'Implemented a Unix shell in C with built-in command execution, process control via fork/exec, signal handling, and I/O management. Demonstrates systems-level fluency and low-level engineering depth.',
     tech: ['C', 'Unix', 'Process Management', 'Signals', 'Systems Programming'],
     github: 'https://github.com/Sahil-Virani/Sahil-Projects/blob/main/minishell.c',
     live: null,
@@ -104,25 +144,25 @@ export const projects = [
 
 export const experience = [
   {
-    role: 'Artificial Intelligence Research Assistant',
-    company: 'Stevens Institute of Technology',
-    period: 'May 2025 – May 2026',
+    role: 'Software Engineering Intern',
+    company: 'Sentari AI',
+    period: 'June 2025 – August 2025',
     description:
-      'Analyzed conversational data from OpenAI-powered agent experiments to evaluate human-AI collaboration patterns across structured team interactions. Built Python-based pipelines to process and code experimental interaction data, identifying decision-making and creativity patterns across agent teams. Co-designed experiment evaluation methodology, improving analysis efficiency by 50%.'
+      'Shipped 15+ production REST endpoints powering voice transcription, multilingual NLP, and sentiment analysis for a live journaling platform, containerized with Docker over PostgreSQL. Built a runtime model-routing layer selecting GPT-4 or Whisper from live language detection, extending transcription coverage to 170+ languages. Delivered user-facing features on an overnight spec-to-production cycle, evolving SQL schemas while keeping all endpoints backward compatible.'
   },
   {
-    role: 'AI Software Engineering Intern',
-    company: 'Sentari AI',
-    period: 'August 2025 – September 2025',
+    role: 'Artificial Intelligence Research Assistant',
+    company: 'Stevens Institute of Technology — Professor Yan',
+    period: 'May 2025 – May 2026',
     description:
-      'Engineered production AI features for a live journaling platform: built GPT-4 language-aware response generation, Whisper voice transcription across 170+ languages, and sentiment-driven UI logic adapting to user emotional patterns. Designed and modified Supabase SQL schemas for new product features and deployed containerized services via Docker.'
+      'Co-designed evaluation methodology and success metrics for a controlled study of generative AI\'s effect on group decisions across 60+ participants over multiple sessions. Engineered Python pipelines that processed and behaviorally coded 100+ multi-turn agent-experiment transcripts into quantitative decision and creativity measures. Authored a reproducible annotation schema across the full corpus, improving analysis efficiency by 50%.'
   },
   {
     role: 'Information Technology Assistant',
     company: 'Stevens Institute of Technology',
     period: 'January 2025 – February 2026',
     description:
-      'Administered cross-campus technology operations, delivering technical solutions across classroom and institutional systems. Streamlined operational workflows and reduced request resolution time by 20% through systematic troubleshooting and process improvements.'
+      'Resolved audio/visual, conferencing, and networking failures for 150+ faculty and students during live classes and events. Standardized troubleshooting and escalation procedures, cutting average request resolution time by 20%. Recognized as a Rising Star in IT 2025.'
   }
 ]
 
@@ -132,7 +172,7 @@ export const leadership = [
     organization: 'Alpha Sigma Phi',
     period: 'May 2025 – May 2026',
     description:
-      'Directed chapter budgeting, financial planning, and fiscal operations using structured forecasting and reporting workflows. Oversaw financial accountability across the organization, aligning spending strategy with operational goals.'
+      'Directed chapter budgeting, financial planning, and fiscal operations for a five-figure budget across 30+ members, using structured forecasting and reporting workflows. Oversaw financial accountability across the organization, aligning spending strategy with operational goals.'
   },
   {
     role: 'President & Co-Editor',
@@ -145,27 +185,27 @@ export const leadership = [
 
 export const skills = [
   {
-    category: 'AI & Machine Learning',
-    items: ['Agentic AI Systems', 'LLM Integration (GPT-4, Claude)', 'RAG Pipelines', 'Prompt Engineering', 'NLP Pipelines', 'TensorFlow', 'Keras', 'scikit-learn']
+    category: 'Languages',
+    items: ['Python', 'TypeScript', 'JavaScript', 'Java', 'C', 'C++', 'SQL', 'Go', 'R']
   },
   {
-    category: 'Backend & Infrastructure',
-    items: ['Node.js', 'Flask', 'REST APIs', 'C', 'C++', 'Docker', 'Supabase', 'SQL', 'MongoDB']
+    category: 'AI & LLM Engineering',
+    items: ['Agentic Pipelines', 'Multi-Agent Orchestration', 'RAG', 'LLM Evaluation & Critic Loops', 'Prompt Engineering', 'Tool Calling', 'Model Context Protocol (MCP)', 'LangChain', 'LangGraph', 'GPT-4', 'Claude', 'Gemini', 'Claude Code', 'Codex', 'Cursor']
   },
   {
-    category: 'Frontend',
-    items: ['React', 'React Native', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Expo']
+    category: 'Machine Learning & Data',
+    items: ['TensorFlow', 'Keras', 'scikit-learn', 'LSTM & Time-Series Forecasting', 'NLP', 'Pandas', 'NumPy', 'Polars', 'Matplotlib']
   },
   {
-    category: 'Developer Tools',
-    items: ['Claude Code', 'VS Code', 'Codex', 'Cursor', 'Git', 'GitHub Actions', 'Android Studio', 'Expo Go']
+    category: 'Backend & Frontend',
+    items: ['FastAPI', 'Node.js', 'Express', 'Flask', 'React', 'Next.js', 'React Native', 'Tailwind CSS', 'REST APIs', 'Server-Sent Events', 'WebSockets']
   },
   {
-    category: 'Data & Analytics',
-    items: ['Python', 'Pandas', 'Microsoft Excel', 'NumPy', 'Matplotlib', 'Experimental Analysis']
+    category: 'Data & Infrastructure',
+    items: ['PostgreSQL', 'MongoDB', 'DuckDB', 'Supabase', 'Chroma', 'Docker', 'AWS', 'Git', 'GitHub Actions', 'CI/CD', 'pytest', 'Vitest', 'Playwright']
   },
   {
     category: 'Finance Focus',
-    items: ['Quantitative Finance', 'Financial Risk Management', 'Market Analysis', 'Forecasting', 'Decision Support']
+    items: ['Quantitative Finance', 'Derivatives Pricing & Hedging', 'Portfolio Theory', 'Financial Risk Management', 'Market Analysis', 'Forecasting', 'Decision Support']
   }
 ]

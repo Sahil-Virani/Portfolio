@@ -47,6 +47,25 @@ export default function About() {
                   <p className="text-sm font-medium text-slate-200">{item}</p>
                 </div>
               ))}
+
+              {[
+                { label: 'Certifications', items: about.certifications },
+                { label: 'Awards', items: about.awards },
+              ].map((group) => (
+                <div key={group.label} className="mt-4">
+                  <p className="text-sm uppercase tracking-[0.15em] text-slate-400">{group.label}</p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {group.items.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-sky-400/20 bg-sky-400/10 px-3 py-1 text-xs font-medium text-sky-300"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </motion.div>
           </div>
         </div>
