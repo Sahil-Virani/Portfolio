@@ -4,18 +4,27 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: '#08111f',
-        panel: '#0d1728',
-        muted: '#94a3b8',
-        accent: '#38bdf8',
-        accentSoft: '#0ea5e9',
-        border: 'rgba(148, 163, 184, 0.14)'
+        ground: '#f2f3f1',
+        ink: '#111111',
+        muted: '#4f5450',
+        rule: '#c9ccc7',
+        dim: '#c8cbc6',
+        route: {
+          red: '#e2231a',
+          blue: '#0039a6',
+          green: '#00933c',
+          orange: '#ff6319',
+          yellow: '#fccc0a',
+          brown: '#996633',
+          purple: '#b933ad'
+        }
       },
-      boxShadow: {
-        glow: '0 0 0 1px rgba(56,189,248,0.12), 0 10px 35px rgba(2,8,23,0.45)'
+      fontFamily: {
+        sign: ['Overpass', 'system-ui', 'sans-serif'],
+        code: ['"Overpass Mono"', 'ui-monospace', 'monospace']
       },
-      backgroundImage: {
-        grid: 'linear-gradient(rgba(148,163,184,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.08) 1px, transparent 1px)'
+      maxWidth: {
+        page: '1360px'
       }
     }
   },

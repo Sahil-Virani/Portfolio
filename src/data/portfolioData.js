@@ -1,27 +1,29 @@
 export const personalInfo = {
   name: 'Sahil Virani',
-  title: ['AI-Native Full-Stack & AI Systems Engineer', 'Stevens Institute of Technology | B.S. in CS, QF Minor — M.S. Financial Engineering (Expected May 2027)'],
+  title: ['AI Engineer & Full-Stack Builder', 'Stevens Institute of Technology · B.S. Computer Science, Quantitative Finance minor · M.S. Financial Engineering, September 2026 – Fall 2027'],
   tagline:
-    'Building production AI systems at the intersection of intelligent automation and financial decision-making.',
+    'I ship production AI systems end to end: agents, APIs, databases and interfaces, backed by a mathematical foundation in statistics, stochastic calculus and machine learning.',
   location: 'Hoboken, NJ / New York Area',
   email: 'sahil.virani@outlook.com',
   linkedin: 'https://www.linkedin.com/in/sahil-virani9',
   github: 'https://github.com/Sahil-Virani',
-  resume: '/Portfolio/Sahil_Virani_Resume_2026.pdf',
+  resume: "/Portfolio/Sahil%20Virani's%20Resume.pdf",
 }
 
 export const about = {
   paragraphs: [
-    'I engineer AI-native systems that bridge full-stack engineering with intelligent automation. My work focuses on agentic workflows, LLM integration at production scale, and decision-support tools for financial technology. I hold a B.S. in Computer Science from Stevens Institute of Technology with a minor in Quantitative Finance, and am completing an Accelerated M.S. in Financial Engineering, providing deep technical and domain fluency across both disciplines.',
+    'I build AI-native software end to end: agentic workflows, LLM integration at production scale, and the full-stack products around them. I hold a B.S. in Computer Science from Stevens Institute of Technology with a minor in Quantitative Finance, and I am completing an M.S. in Financial Engineering, finishing in Fall 2027.',
     'My background spans applied AI research, full-stack product engineering, and agentic workflow development. I have shipped production AI features including multi-language voice transcription and real-time sentiment analysis, built multi-agent and self-evaluating LLM pipelines, and won 1st place at the Google Developer Groups and Vonage AI Fashion Hackathon, owning technical work end to end across backend, database, and AI layers.',
-    'I target roles at the intersection of AI, technology, and finance in big tech, fintech, or quantitative research, building intelligent automation, risk-aware analytics, and financial decision-support systems that create measurable impact.'
+    'That graduate work gives my engineering a mathematical spine: stochastic calculus, statistics, machine learning and computational methods. I use it to evaluate models honestly, reason about uncertainty, and build systems whose outputs can be measured. I am looking for AI engineering and full-stack roles, in any industry, where that combination creates measurable impact.'
   ],
   certifications: [
     'AWS Certified AI Practitioner',
     'AWS Certified Cloud Practitioner',
     'Claude 101',
     'Claude Code 101',
-    'Claude Developer Platform'
+    'Claude Developer Platform',
+    'Anthropic MCP',
+    'Bloomberg Market Concepts'
   ],
   awards: [
     'Edwin A. Stevens Scholarship',
@@ -34,6 +36,7 @@ export const about = {
 export const projects = [
   {
     title: 'MarketMind AI',
+    role: 'Founder',
     description:
       'Architected a full-stack AI equity research platform pairing a synchronous FastAPI path that returns investment memos in under a second with a 9-stage autonomous research agent orchestrating Gemini, yfinance market data, and live news APIs in parallel. Engineered a self-evaluating LLM pipeline where a critic model scores evidence 0–100 against structured rubrics and triggers up to 2 targeted refinement passes, synthesizing across up to 8 companies per run. Built a real-time streaming frontend with SSE-powered live pipeline visualization and animated per-stage confidence scoring.',
     tech: ['Next.js', 'TypeScript', 'FastAPI', 'Python', 'Gemini API', 'yfinance', 'REST APIs', 'SSE'],
@@ -53,7 +56,7 @@ export const projects = [
   {
     title: 'CenterPlate',
     description:
-      'Shipped a cross-platform React Native app for group meetup coordination and real-time restaurant voting, used by 25+ people across 43 REST endpoints. Synced concurrent voting sessions over Socket.IO rooms with Firebase JWT auth on both HTTP and WebSocket connections. Designed a geospatial midpoint algorithm scoring candidates against a 1,000-city hub dataset on an 85/15 weighting of travel fairness to population-weighted hub proximity, then ranking venues via the Foursquare Places API v3 with multi-tier fallback logic.',
+      'Shipped a cross-platform React Native app for group meetup coordination and real-time restaurant voting, launched to 30+ beta users across 43 REST endpoints. Synced concurrent voting sessions over Socket.IO rooms with Firebase JWT auth on both HTTP and WebSocket connections. Designed a geospatial midpoint algorithm scoring candidates against a 1,000-city hub dataset on an 85/15 weighting of travel fairness to population-weighted hub proximity, then ranking venues via the Foursquare Places API v3 with multi-tier fallback logic.',
     tech: ['React Native', 'Expo', 'Node.js', 'Express', 'MongoDB', 'Socket.IO', 'Firebase', 'Foursquare API'],
     github: null,
     live: 'https://youtu.be/Rru1T9ja-ns',
@@ -93,7 +96,7 @@ export const projects = [
     tech: ['Python', 'TensorFlow', 'Keras', 'Pandas', 'Matplotlib', 'Yahoo Finance API'],
     github: 'https://github.com/Sahil-Virani/Sahil-Projects/blob/main/MarketPredictionModel.ipynb',
     live: null,
-    highlight: 'Quant Finance'
+    highlight: 'Time-Series ML'
   },
   {
     title: 'Fake News Detector',
@@ -116,7 +119,7 @@ export const projects = [
   {
     title: 'This Portfolio',
     description:
-      'Designed and built a responsive personal portfolio from scratch with Claude Code to present AI and finance-focused work with a clean, modern interface. Architected with reusable React components, a centralized data layer, and Framer Motion animations, deployed to GitHub Pages via a streamlined Vite build pipeline.',
+      'Designed and built this portfolio with Claude Code to present AI and full-stack work as a hand-routed transit map: projects as lines, technologies as stations. Built from reusable React components over a centralized data layer, with a Framer Motion draw-in, deployed to GitHub Pages via a Vite build pipeline.',
     tech: ['React', 'Vite', 'Tailwind CSS', 'Framer Motion', 'GitHub Pages', 'Claude Code', 'AI Tools'],
     github: 'https://github.com/Sahil-Virani/Portfolio',
     live: null,
@@ -147,22 +150,36 @@ export const experience = [
     role: 'Software Engineering Intern',
     company: 'Sentari AI',
     period: 'June 2025 – August 2025',
-    description:
-      'Shipped 15+ production REST endpoints powering voice transcription, multilingual NLP, and sentiment analysis for a live journaling platform, containerized with Docker over PostgreSQL. Built a runtime model-routing layer selecting GPT-4 or Whisper from live language detection, extending transcription coverage to 170+ languages. Delivered user-facing features on an overnight spec-to-production cycle, evolving SQL schemas while keeping all endpoints backward compatible.'
+    bullets: [
+      'Developed LLM response generation, voice transcription, and sentiment analysis for a live AI journaling app on iOS and web by shipping 15+ production REST endpoints as containerized Docker services over PostgreSQL',
+      'Built a model-routing layer that directs each request to GPT-4 or Whisper based on real-time language detection, powering AI voice transcription across 170+ languages',
+      'Delivered AI-driven features, including sentiment-adaptive UI, from spec to production overnight while keeping all 15+ endpoints backward compatible by evolving SQL schemas alongside each release'
+    ],
+    tech: ['Flask', 'PostgreSQL', 'Supabase', 'Docker', 'REST APIs', 'SQL', 'GPT-4', 'Whisper API'],
+    line: 'S'
   },
   {
     role: 'Artificial Intelligence Research Assistant',
     company: 'Stevens Institute of Technology — Professor Yan',
     period: 'May 2025 – May 2026',
-    description:
-      'Co-designed evaluation methodology and success metrics for a controlled study of generative AI\'s effect on group decisions across 60+ participants over multiple sessions. Engineered Python pipelines that processed and behaviorally coded 100+ multi-turn agent-experiment transcripts into quantitative decision and creativity measures. Authored a reproducible annotation schema across the full corpus, improving analysis efficiency by 50%.'
+    bullets: [
+      'Co-designed evaluation methodology and success metrics for a controlled study of generative AI\'s effect on group decisions across 60+ participants over multiple sessions',
+      'Implemented Python pipelines that processed and coded 100+ transcripts of study participants collaborating with AI agents into quantitative decision-making and creativity measures',
+      'Authored a reproducible annotation schema across the full corpus, improving analysis efficiency by 50%'
+    ],
+    tech: ['Python', 'OpenAI API', 'Experiment Design', 'Data Analysis'],
+    line: 'R'
   },
   {
     role: 'Information Technology Assistant',
     company: 'Stevens Institute of Technology',
     period: 'January 2025 – February 2026',
-    description:
-      'Resolved audio/visual, conferencing, and networking failures for 150+ faculty and students during live classes and events. Standardized troubleshooting and escalation procedures, cutting average request resolution time by 20%. Recognized as a Rising Star in IT 2025.'
+    bullets: [
+      'Served as a front-line technical partner to 150+ faculty and students, restoring A/V, conferencing, and network service',
+      'Turned recurring support requests into standardized troubleshooting and escalation playbooks, cutting average resolution time by 20%',
+      'Recognized as a Rising Star in IT 2025'
+    ],
+    tech: ['Networking', 'A/V Systems', 'Conferencing Systems', 'Escalation Playbooks']
   }
 ]
 
@@ -193,6 +210,10 @@ export const skills = [
     items: ['Agentic Pipelines', 'Multi-Agent Orchestration', 'RAG', 'LLM Evaluation & Critic Loops', 'Prompt Engineering', 'Tool Calling', 'Model Context Protocol (MCP)', 'LangChain', 'LangGraph', 'GPT-4', 'Claude', 'Gemini', 'Claude Code', 'Codex', 'Cursor']
   },
   {
+    category: 'Mathematics & Quantitative Methods',
+    items: ['Stochastic Calculus', 'Statistics', 'Machine Learning', 'Computational Methods', 'Monte Carlo Simulation', 'Time-Series Forecasting', 'Optimization']
+  },
+  {
     category: 'Machine Learning & Data',
     items: ['TensorFlow', 'Keras', 'scikit-learn', 'LSTM & Time-Series Forecasting', 'NLP', 'Pandas', 'NumPy', 'Polars', 'Matplotlib']
   },
@@ -203,9 +224,5 @@ export const skills = [
   {
     category: 'Data & Infrastructure',
     items: ['PostgreSQL', 'MongoDB', 'DuckDB', 'Supabase', 'Chroma', 'Docker', 'AWS', 'Git', 'GitHub Actions', 'CI/CD', 'pytest', 'Vitest', 'Playwright']
-  },
-  {
-    category: 'Finance Focus',
-    items: ['Quantitative Finance', 'Derivatives Pricing & Hedging', 'Portfolio Theory', 'Financial Risk Management', 'Market Analysis', 'Forecasting', 'Decision Support']
   }
 ]

@@ -1,23 +1,19 @@
-import { motion } from 'framer-motion'
+import Dotted from './Dotted'
 
-export default function SectionHeading({ tag, title, subtitle }) {
+export default function SectionHeading({ id, word, meta }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 18 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.45 }}
-      className="mb-12"
-    >
-      <span className="section-tag">{tag}</span>
-      <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-        {title}
-      </h2>
-      {subtitle && (
-        <p className="mt-3 max-w-2xl text-base leading-7 text-slate-300">
-          {subtitle}
-        </p>
-      )}
-    </motion.div>
+    <header className="mb-12 sm:mb-16">
+      <div className="title-bar" />
+      <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <h2 id={id} className="section-word">
+          {word}
+        </h2>
+        {meta && (
+          <p className="tracked sm:pb-2 sm:text-right">
+            <Dotted text={meta} />
+          </p>
+        )}
+      </div>
+    </header>
   )
 }

@@ -1,103 +1,106 @@
 import { Menu, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { personalInfo } from '../data/portfolioData'
 
 const navItems = [
   { label: 'About', href: '#about' },
-  { label: 'Projects', href: '#projects' },
   { label: 'Experience', href: '#experience' },
+  { label: 'Projects', href: '#projects' },
   { label: 'Skills', href: '#skills' },
   { label: 'Contact', href: '#contact' }
 ]
 
 export default function Navbar() {
   const [active, setActive] = useState('home')
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const sections = ['home', 'about', 'projects', 'experience', 'skills', 'contact']
-
-    const observers = sections
-      .map((id) => document.getElementById(id))
-      .filter(Boolean)
-      .map((section) => {
-        const observer = new IntersectionObserver(
-          ([entry]) => {
-            if (entry.isIntersecting) {
-              setActive(entry.target.id)
-            }
-          },
-          { threshold: 0.45 }
-        )
-        observer.observe(section)
-        return observer
-      })
-
-    const handleScroll = () => setScrolled(window.scrollY > 12)
-    window.addEventListener('scroll', handleScroll)
-
+    const ids = ['home', 'about', 'experience', 'projects', 'skills', 'contact']
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => e.isIntersecting && setActive(e.target.id))
+      },
+      { rootMargin: '-45% 0px -50% 0px' }
+    )
+    ids.forEach((id) => {
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
+    })
+    const onScroll = () => setScrolled(window.scrollY > 12)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => {
-      observers.forEach((observer) => observer.disconnect())
-      window.removeEventListener('scroll', handleScroll)
+      observer.disconnect()
+      window.removeEventListener('scroll', onScroll)
     }
   }, [])
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition ${
-        scrolled ? 'bg-slate-950/70 backdrop-blur-xl border-b border-white/10' : 'bg-transparent'
+      className={`fixed inset-x-0 top-0 z-50 bg-ground transition-[border-color] duration-200 ${
+        scrolled ? 'border-b-2 border-ink' : 'border-b-2 border-transparent'
       }`}
     >
-      <nav className="container-shell flex h-20 items-center justify-between">
-        <a href="#home" className="text-sm font-semibold tracking-[0.28em] text-white uppercase">
-          SV
+      <div className="page flex h-16 items-center justify-between">
+        <a href="#home" className="flex items-center gap-3 font-sign font-black">
+          <span aria-hidden="true" className="flex h-8 w-8 items-center justify-center rounded-full bg-ink pt-[2px] text-[0.8rem] text-ground">
+            SV
+          </span>
+          <span className="text-[1.05rem]">Sahil Virani</span>
         </a>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <nav aria-label="Sections" className="hidden items-center gap-7 md:flex">
           {navItems.map((item) => {
-            const id = item.href.replace('#', '')
+            const isActive = active === item.href.slice(1)
             return (
               <a
-                key={item.label}
+                key={item.href}
                 href={item.href}
-                className={`nav-link ${active === id ? 'nav-link-active' : ''}`}
+                aria-current={isActive ? 'true' : undefined}
+                className={`font-sign text-[0.95rem] font-bold underline-offset-[0.4em] ${
+                  isActive ? 'underline decoration-[3px]' : 'no-underline hover:underline'
+                }`}
               >
                 {item.label}
               </a>
             )
           })}
-        </div>
-
-        <div className="hidden md:block">
-          <a href="#contact" className="button-secondary">
-            Let’s Connect
+          <a href={personalInfo.resume} target="_blank" rel="noreferrer" className="btn-ink !px-4 !py-2">
+            Resume
           </a>
-        </div>
+        </nav>
 
         <button
-          className="md:hidden text-white"
-          onClick={() => setMobileOpen((prev) => !prev)}
-          aria-label="Toggle navigation"
+          type="button"
+          className="flex h-11 w-11 items-center justify-center md:hidden"
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          aria-controls="mobile-nav"
+          aria-label={open ? 'Close menu' : 'Open menu'}
         >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          {open ? <X size={24} strokeWidth={2.5} /> : <Menu size={24} strokeWidth={2.5} />}
         </button>
-      </nav>
+      </div>
 
-      {mobileOpen && (
-        <div className="border-t border-white/10 bg-slate-950/95 md:hidden">
-          <div className="container-shell flex flex-col py-4">
+      {open && (
+        <nav id="mobile-nav" aria-label="Sections" className="border-t-2 border-ink bg-ground md:hidden">
+          <div className="page flex flex-col py-3">
             {navItems.map((item) => (
               <a
-                key={item.label}
+                key={item.href}
                 href={item.href}
-                onClick={() => setMobileOpen(false)}
-                className="py-3 text-sm text-slate-300 transition hover:text-white"
+                onClick={() => setOpen(false)}
+                className="py-3 font-sign text-lg font-extrabold"
               >
                 {item.label}
               </a>
             ))}
+            <a href={personalInfo.resume} target="_blank" rel="noreferrer" className="btn-ink mt-3 self-start">
+              Resume
+            </a>
           </div>
-        </div>
+        </nav>
       )}
     </header>
   )
